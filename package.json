@@ -1,0 +1,37 @@
+{
+  "name": "nnpscript",
+  "displayName": "nnpscript Language Support",
+  "description": "Syntax highlighting for .nnpscript files, ported from the Notepad++ UDL definition.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:COSMIIC-Community/COSMIIC-VSCode-nnpscript.git"
+  },
+  "engines": { "vscode": "^1.75.0" },
+  "categories": ["Programming Languages"],
+  "contributes": {
+    "languages": [
+      {
+        "id": "nnpscript",
+        "aliases": ["nnpscript", "NNP Script"],
+        "extensions": [".nnpscript"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "nnpscript",
+        "scopeName": "source.nnpscript",
+        "path": "./syntaxes/nnpscript.tmLanguage.json"
+      }
+    ],
+    "themes": [
+      {
+        "label": "nnpscript Light (NP++ style)",
+        "uiTheme": "vs",
+        "path": "./themes/nnpscript-light-color-theme.json"
+      }
+    ]
+  }
+}

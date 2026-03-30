@@ -1,0 +1,82 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "nnpscript",
+  "scopeName": "source.nnpscript",
+  "fileTypes": ["nnpscript"],
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#blocks" },
+    { "include": "#keywords1" },
+    { "include": "#keywords2" },
+    { "include": "#keywords3" },
+    { "include": "#operators" },
+    { "include": "#numbers" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "comment": "Line comment starting with %",
+          "name": "comment.line.percent.nnpscript",
+          "match": "%.*$"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "comment": "Double-quoted string (DELIMITERS1/2 - purple)",
+          "name": "string.quoted.double.nnpscript",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": []
+        },
+        {
+          "comment": "Exclamation-delimited string (DELIMITERS3 - orange, bold)",
+          "name": "string.other.exclamation.nnpscript",
+          "begin": "!",
+          "end": "!",
+          "patterns": []
+        }
+      ]
+    },
+    "blocks": {
+      "patterns": [
+        {
+          "comment": "Curly-brace block (DELIMITERS7 - dark magenta, italic)",
+          "name": "meta.block.nnpscript",
+          "begin": "\\{",
+          "end": "\\}",
+          "beginCaptures": { "0": { "name": "punctuation.definition.block.begin.nnpscript" } },
+          "endCaptures":   { "0": { "name": "punctuation.definition.block.end.nnpscript" } }
+        }
+      ]
+    },
+    "keywords1": {
+      "comment": "Type / storage keywords (KEYWORDS1 - teal/cyan, bold)",
+      "name": "storage.type.nnpscript",
+      "match": "\\b(stack|global|const|uint8|int8|uint16|int16|uint32|int32|ba|string|define)\\b"
+    },
+    "keywords2": {
+      "comment": "Instruction mnemonics (KEYWORDS2 - blue, bold)",
+      "name": "keyword.control.mnemonic.nnpscript",
+      "match": "\\b(NOP|MOV|NMT0|NMT1|NMT2|CATMOV|CATMOV0|CATMOVCR|SUBSTR|ITS|UTS|ITS0|UTS0|ADD|SUB|MUL|DIV|ADDS|SUBS|MULS|DIFF|INC|DEC|INCS|DECS|MAX|MIN|SRGT|SLFT|ABS|BITON|BITOFF|ITQ|UTQ|ADDQ|SUBQ|MULQ|DIVQ|SQRTQ|QTI|QTU|QTS|CHS|SIL|SIR|AND|OR|MODD|XOR|COMP|SIN|COS|TAN|ASIN|ACOS|ATAN|ATAN2|SIGN|PACK|UNPACK|BLT|BGT|BEQ|BNE|BGTE|BLTE|BNZ|BZ|GOTO|BBITON|TDEL|GNS|BBITOFF|BITSET|BITCNT|FREAD|FWRITE|FRESET|FSIZE|FGETPTR|FSETPTR|BITCPY|FCLOSE|STARTSCPT|STOPSCPT|RUNONCE|RUNIMM|RUNNEXT|RUNMULT|RESETGLOBALS|NODESCAN|INTERPOL|MAVG|IIR|FIFO|VECMOV|VECMAX|VECMAXI|VECMIN|VECMINI|VECMED|VECMEDI|VECMEAN|VECSUM|VECPROD|VECMAG|VECMAG2|VECADD|VECSUB|VECMUL|VECDIV|EXIT)\\b"
+    },
+    "keywords3": {
+      "comment": "Logging keywords (KEYWORDS3 - blue, bold)",
+      "name": "support.function.log.nnpscript",
+      "match": "\\b(log|timelog)\\b"
+    },
+    "operators": {
+      "comment": "Operators (OPERATORS - blue): = > | ^ ( )",
+      "name": "keyword.operator.nnpscript",
+      "match": "[=|^()>]"
+    },
+    "numbers": {
+      "comment": "Numeric literals (NUMBERS - default black)",
+      "name": "constant.numeric.nnpscript",
+      "match": "\\b[0-9]+(\\.[0-9]+)?\\b|0x[0-9a-fA-F]+"
+    }
+  }
+}
