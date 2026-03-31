@@ -2,7 +2,7 @@
   "name": "nnpscript",
   "displayName": "nnpscript Language Support",
   "description": "Syntax highlighting for .nnpscript files, ported from the Notepad++ UDL definition.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "repository": {
     "type": "git",

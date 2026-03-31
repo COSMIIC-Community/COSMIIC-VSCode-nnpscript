@@ -2,6 +2,8 @@
 
 Syntax highlighting for `.nnpscript` files, ported from Notepad++ User Defined Language (UDL) XML.
 
+Colors are applied via `configurationDefaults` in `package.json` so they work consistently across all VS Code themes without requiring the user to set a specific theme.
+
 ---
 
 ## Build .vsix package file
@@ -10,52 +12,52 @@ Requires Node.js:
 
 ```bash
 npm install -g @vscode/vsce
-cd nnpscript-vscode
+cd COSMIIC-nnpscript-VSCode
 vsce package
-# produces nnpscript-1.0.0.vsix
+# produces versioned nnpscript-X.X.X.vsix
 ```
+
+This repository also automatically builds a `.vsix` artifact by GitHub Actions on every push or pull request to `main`. Download it from the **Actions** tab → latest workflow run → **nnpscript-vsix** artifact.
 
 ---
 
-## Install `.vsix` file in VS Code:
+## Install `.vsix` file in VS Code
 
-```
-Extensions panel (Ctrl+Shift+X) → ··· menu → Install from VSIX…
-```
+Select the Extensions panel from the VS Code sidebar (Ctrl+Shift+X). Click the triple dot "···" menu in the top right corner. Click Install from VSIX…
 
 Or via the command line:
 
 ```bash
-code --install-extension nnpscript-1.0.0.vsix
+code --install-extension nnpscript-1.0.3.vsix
 ```
 
 ---
 
-## Color mapping from Notepad++ UDL
+## Syntax features
 
-| NP++ Style      | Color     | VS Code Scope                         |
-|-----------------|-----------|---------------------------------------|
-| LINE COMMENTS   | `#008000` green, italic | `comment.line.percent`      |
-| COMMENTS        | `#FF80FF` pink          | `comment.block`             |
-| KEYWORDS1       | `#00A8A8` teal, bold    | `storage.type`              |
-| KEYWORDS2       | `#0000FF` blue, bold    | `keyword.control.mnemonic`  |
-| KEYWORDS3       | `#0000FF` blue, bold    | `support.function.log`      |
-| OPERATORS       | `#0000FF` blue          | `keyword.operator`          |
-| NUMBERS         | `#000000` black         | `constant.numeric`          |
-| DELIMITERS1/2   | `#8000FF` purple        | `string.quoted.double`      |
-| DELIMITERS3     | `#FF8000` orange, bold  | `string.other.exclamation`  |
-| DELIMITERS7     | `#800040` dark magenta, italic | `meta.block`         |
+| Token | Example | Description |
+| --- | --- | --- |
+| Comments | `% this is a comment` | Lines starting with `%` |
+| Keywords1 (types) | `uint16`, `stack`, `const` | Type / storage keywords |
+| Keywords2 (mnemonics) | `MOV`, `ADD`, `BEQ` | Instruction mnemonics |
+| Keywords3 (logging) | `log`, `timelog` | Logging functions |
+| Operators | `=`, `(`, `)`, `>`, `\|`, `^` | Operators |
+| Numbers | `42`, `3.14`, `0xFF` | Integer, float, and hex literals |
+| Strings (double-quoted) | `"label"` | Double-quoted strings |
+| Strings (exclamation) | `!message!` | Exclamation-delimited strings |
+| Blocks | `{ ... }` | Curly-brace blocks |
+| OD index | `N7:1F57.3` | Object Dictionary node:index.subindex references |              |
 
 ---
 
 ## Files in this extension
 
 ```
-nnpscript-vscode/
-├── package.json                          # Extension manifest
+COSMIIC-nnpscript-VSCode/
+├── package.json                          # Extension manifest & token color customizations
 ├── language-configuration.json           # Comment toggling, bracket matching
 ├── syntaxes/
 │   └── nnpscript.tmLanguage.json         # TextMate grammar (tokenization rules)
-└── themes/
-    └── nnpscript-light-color-theme.json  # Color theme matching your NP++ UDL
+└── .github/workflows/
+    └── build-vsix.yml                    # CI: builds .vsix artifact on push/PR to main
 ```
