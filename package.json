@@ -2,7 +2,7 @@
   "name": "nnpscript",
   "displayName": "nnpscript Language Support",
   "description": "Syntax highlighting for .nnpscript files, ported from the Notepad++ UDL definition.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -32,6 +32,88 @@
         "uiTheme": "vs",
         "path": "./themes/nnpscript-light-color-theme.json"
       }
-    ]
+    ],
+    "configurationDefaults": {
+      "editor.tokenColorCustomizations": {
+        "textMateRules": [
+          {
+            "scope": "comment.line.percent.nnpscript",
+            "settings": { "foreground": "#6A9955", "fontStyle": "italic" }
+          },
+          {
+            "scope": "storage.type.nnpscript",
+            "settings": { "foreground": "#4EC9B0", "fontStyle": "bold" }
+          },
+          {
+            "scope": "keyword.control.mnemonic.nnpscript",
+            "settings": { "foreground": "#569CD6", "fontStyle": "bold" }
+          },
+          {
+            "scope": "support.function.log.nnpscript",
+            "settings": { "foreground": "#569CD6", "fontStyle": "bold" }
+          },
+          {
+            "scope": "keyword.operator.nnpscript",
+            "settings": { "foreground": "#569CD6" }
+          },
+          {
+            "scope": "constant.numeric.nnpscript",
+            "settings": { "foreground": "#B5CEA8" }
+          },
+          {
+            "scope": "string.quoted.double.nnpscript",
+            "settings": { "foreground": "#C586C0" }
+          },
+          {
+            "scope": "string.other.exclamation.nnpscript",
+            "settings": { "foreground": "#FF8000", "fontStyle": "bold" }
+          },
+          {
+            "scope": "meta.block.nnpscript, punctuation.definition.block.begin.nnpscript, punctuation.definition.block.end.nnpscript",
+            "settings": { "foreground": "#D670C0", "fontStyle": "italic" }
+          }
+        ],
+        "[*Light*]": {
+          "textMateRules": [
+            {
+              "scope": "comment.line.percent.nnpscript",
+              "settings": { "foreground": "#008000", "fontStyle": "italic" }
+            },
+            {
+              "scope": "storage.type.nnpscript",
+              "settings": { "foreground": "#00A8A8", "fontStyle": "bold" }
+            },
+            {
+              "scope": "keyword.control.mnemonic.nnpscript",
+              "settings": { "foreground": "#0000FF", "fontStyle": "bold" }
+            },
+            {
+              "scope": "support.function.log.nnpscript",
+              "settings": { "foreground": "#0000FF", "fontStyle": "bold" }
+            },
+            {
+              "scope": "keyword.operator.nnpscript",
+              "settings": { "foreground": "#0000FF" }
+            },
+            {
+              "scope": "constant.numeric.nnpscript",
+              "settings": { "foreground": "#000000" }
+            },
+            {
+              "scope": "string.quoted.double.nnpscript",
+              "settings": { "foreground": "#8000FF" }
+            },
+            {
+              "scope": "string.other.exclamation.nnpscript",
+              "settings": { "foreground": "#FF8000", "fontStyle": "bold" }
+            },
+            {
+              "scope": "meta.block.nnpscript, punctuation.definition.block.begin.nnpscript, punctuation.definition.block.end.nnpscript",
+              "settings": { "foreground": "#800040", "fontStyle": "italic" }
+            }
+          ]
+        }
+      }
+    }
   }
 }
